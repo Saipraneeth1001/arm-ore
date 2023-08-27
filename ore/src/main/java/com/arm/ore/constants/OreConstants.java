@@ -10,6 +10,7 @@ public class OreConstants {
     public static int SECTION_80D_PARENTS_LIMIT=50000;
     public static int SECTION_80D=25000;
     public static int SECTION_80TTA=10000;
+    public static int NO_TAX_LIMIT=750000;
 
 
 

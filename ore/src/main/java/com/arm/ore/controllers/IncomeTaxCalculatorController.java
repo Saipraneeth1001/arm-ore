@@ -14,11 +14,9 @@ public class IncomeTaxCalculatorController {
 
     @PostMapping(value ="/tax")
     public String calculateTax(@RequestBody IncomeTaxRequest request) {
-        int income = request.getSalaryIncome() + request.getIncomeFromBank() + request.getInvestments();
-        int deductions = request.getHra() + request.getEducationLoan() + request.getEmployeeNPS() +
-                request.getEmployerNPS() + request.getHomeLoanLetOut() + request.getHomeLoanSelfOccupied() +
-                request.getMedicalInsurancePremium() + request.getSavingsBankInterest() + request.getSection80C();
-        Helper.computeSectionWiseDeduction(request);
-        return "done";
+        log.info("income tax request {}", request);
+        Helper helper = new Helper(request);
+        String result = helper.computeSectionWiseDeduction(request);
+        return result;
     }
 }

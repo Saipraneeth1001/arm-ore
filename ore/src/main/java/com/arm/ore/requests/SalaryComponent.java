@@ -7,7 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class IncomeTaxRequest {
-    IncomeRequestData data;
+public class SalaryComponent {
+    int salaryIncome;
+    int incomeFromBank;
+    int investments;
+    int basicSalary;
 
 }

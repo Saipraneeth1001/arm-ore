@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class IncomeTaxRequest {
-    IncomeRequestData data;
+public class IncomeRequestData {
+    SalaryComponent salaryComponent;
+    DeductionsComponent deductionsComponent;
 
 }
