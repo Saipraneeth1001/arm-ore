@@ -1,4 +1,4 @@
-package com.arm.ore;
+package com.arm.ore.helper;
 
 import com.arm.ore.constants.OreConstants;
 import com.arm.ore.requests.DeductionsComponent;

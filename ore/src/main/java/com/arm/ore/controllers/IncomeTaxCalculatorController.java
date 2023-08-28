@@ -1,7 +1,7 @@
 package com.arm.ore.controllers;
 
 
-import com.arm.ore.Helper;
+import com.arm.ore.helper.Helper;
 import com.arm.ore.requests.IncomeTaxRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
