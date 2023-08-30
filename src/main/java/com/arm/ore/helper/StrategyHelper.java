@@ -3,10 +3,12 @@ package com.arm.ore.helper;
 import com.arm.ore.requests.DeductionsComponent;
 import com.arm.ore.requests.IncomeTaxRequest;
 import com.arm.ore.requests.SalaryComponent;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class StrategyHelper {
 
     SalaryComponent salaryComponent;
@@ -23,7 +25,12 @@ public class StrategyHelper {
 
     public List<String> getStrategy() {
 
-        // start with standard deduction
+        if (totalSalary < 750000) {
+            log.info("totalSalary: {}, no need", totalSalary);
+            list.add("As your salary is less than 750000, please opt for new tax regime.");
+            list.add("no further analysis required");
+            return list;
+        }
         list.add("Total Taxable Salary before deductions: "+ totalSalary);
         standardDeduction();
         section80C();
@@ -129,8 +136,8 @@ public class StrategyHelper {
                     .append(totalSalary - deductionsComponent.getHra());
             totalSalary -= deductionsComponent.getHra();
         } else {
-            result.append("Adding a default HRA Component of 96000+\n")
-                    .append(" Taxable Salary: ")
+            result.append("Adding a default HRA Component of 96000")
+                    .append(" -> Taxable Salary: ")
                     .append(totalSalary - 96000);
             totalSalary -= 96000;
         }
